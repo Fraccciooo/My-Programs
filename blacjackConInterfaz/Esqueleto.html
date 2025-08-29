@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blackjack - Casino</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>BLACKJACK</h1>
+            <div class="score-board">
+                <div class="money">Dinero: $<span id="money">10000</span></div>
+                <div class="bet">Apuesta: $<span id="bet">0</span></div>
+            </div>
+        </header>
+
+        <div class="game-container">
+            <div class="dealer-section">
+                <h2>Crupier</h2>
+                <div class="hand" id="dealer-hand"></div>
+                <div class="score" id="dealer-score">Puntos: 0</div>
+            </div>
+
+            <div class="player-section">
+                <h2>Jugador</h2>
+                <div class="hand" id="player-hand"></div>
+                <div class="score" id="player-score">Puntos: 0</div>
+            </div>
+
+            <div class="controls" id="game-controls">
+                <div class="bet-controls">
+                    <button id="bet-5">$5</button>
+                    <button id="bet-25">$25</button>
+                    <button id="bet-50">$50</button>
+                    <button id="bet-100">$100</button>
+                    <button id="bet-500">$500</button>
+                    <button id="bet-666">$666</button>
+                    <button id="clear-bet">Borrar</button>
+                </div>
+                <button id="deal-button" class="action-btn">Repartir</button>
+            </div>
+
+            <div class="game-buttons hidden" id="action-buttons">
+                <button id="hit-button">Pedir</button>
+                <button id="stand-button">Plantarse</button>
+                <button id="double-button">Doblar</button>
+            </div>
+
+            <div class="message" id="game-message"></div>
+            
+            <button id="reset-button" class="hidden">Nueva Partida</button>
+        </div>
+
+        <div class="rules">
+            <h3>Reglas del Blackjack</h3>
+            <ul>
+                <li>El objetivo es tener una mano con valor más cercano a 21 que el crupier, sin pasarse.</li>
+                <li>Las cartas numéricas valen su valor, las figuras (J, Q, K) valen 10 y el As vale 1 u 11.</li>
+                <li>Blackjack natural (A + 10) paga 3:2.</li>
+                <li>El crupier debe pedir carta hasta alcanzar al menos 17 puntos.</li>
+                <li>Puedes doblar tu apuesta después de recibir las dos cartas iniciales.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Cargar los módulos JavaScript -->
+    <script type="module" src="javascript/main.js"></script>
+</body>
+</html>
