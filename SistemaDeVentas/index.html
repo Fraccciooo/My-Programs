@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Ventas</title>
+    <link rel="stylesheet" href="css.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Sistema de Registro de Ventas</h1>
+        
+        <div class="tab">
+            <button class="tablinks active" onclick="openTab(event, 'nuevaVenta')">Nueva Venta</button>
+            <button class="tablinks" onclick="openTab(event, 'ventasDia')">Ventas del Día</button>
+            <button class="tablinks" onclick="openTab(event, 'ventasMes')">Ventas del Mes</button>
+            <button class="tablinks" onclick="openTab(event, 'ventasAnio')">Ventas del Año</button>
+            <button class="tablinks" onclick="openTab(event, 'rankingProductos')">Ranking Productos</button>
+        </div>
+
+        <!-- Nueva Venta -->
+        <div id="nuevaVenta" class="tabcontent" style="display: block;">
+            <h2>Registrar Nueva Venta</h2>
+            
+            <div class="form-group">
+                <label for="fecha">Fecha:</label>
+                <input type="date" id="fecha" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="factura">Número de Factura:</label>
+                <input type="text" id="factura" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="cliente">Cliente:</label>
+                <input type="text" id="cliente" required>
+            </div>
+            
+            <h3>Productos a Vender</h3>
+            <div id="productos-container">
+                <div class="product-row">
+                    <select class="producto" required>
+                        <option value="">Seleccione producto</option>
+                    </select>
+                    <input type="number" class="cantidad" min="1" value="1" required>
+                    <input type="number" class="precio" readonly>
+                    <span class="subtotal">Subtotal: $0.00</span>
+                    <button type="button" class="remove-product">Eliminar</button>
+                </div>
+            </div>
+            
+            <button type="button" class="add-product">+ Agregar Producto</button>
+            
+            <div class="total-section">
+                <label>Total Venta: $</label>
+                <span id="total">0.00</span>
+            </div>
+            
+            <button type="button" id="guardarVenta">Guardar Venta</button>
+            <button type="button" id="exportarPDF">Exportar a PDF</button>
+        </div>
+
+        <!-- Ventas del Día -->
+        <div id="ventasDia" class="tabcontent">
+            <h2>Ventas del Día</h2>
+            <div class="form-group">
+                <label for="fechaConsulta">Seleccione fecha:</label>
+                <input type="date" id="fechaConsulta">
+            </div>
+            <div id="resultadoDia"></div>
+        </div>
+
+        <!-- Ventas del Mes -->
+        <div id="ventasMes" class="tabcontent">
+            <h2>Ventas del Mes</h2>
+            <div class="form-group">
+                <label for="mesConsulta">Seleccione mes:</label>
+                <input type="month" id="mesConsulta">
+            </div>
+            <div id="resultadoMes"></div>
+        </div>
+
+        <!-- Ventas del Año -->
+        <div id="ventasAnio" class="tabcontent">
+            <h2>Ventas del Año</h2>
+            <div class="form-group">
+                <label for="anioConsulta">Seleccione año:</label>
+                <input type="number" id="anioConsulta" min="2000" max="2100">
+            </div>
+            <div id="resultadoAnio"></div>
+        </div>
+
+        <!-- Ranking de Productos -->
+         <div id="rankingProductos" class="tabcontent">
+            <h2>Ranking de Productos Más Vendidos</h2>
+            <div class="form-group">
+                <label for="mesRanking">Seleccione mes:</label>
+                <input type="month" id="mesRanking" onchange="generarRanking()">
+            </div>
+            <div id="resultadoRanking">
+                <!-- Aquí se cargará el ranking -->
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
