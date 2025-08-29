@@ -1,0 +1,12 @@
+:root {
+    /* Colores temáticos de Bleach */
+    --primary: #0a0a1a;
+    --secondary: #006eff;
+    --accent: #ff8c00;
+    --text-light: #e0e0e0;
+    --text-dark: #333;
+    
+    /* Tamaños */
+    --header-height: 80px;
+    --max-width: 1200px;
+}

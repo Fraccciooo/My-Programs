@@ -1,0 +1,65 @@
+MEJORES PRÁCTICAS COMUNES
+
+PARA AMBOS TIPOS DE PROYECTOS:
+
+- Separación clara de responsabilidades:
+  * Componentes UI vs lógica de negocio
+  * Estilos vs comportamiento
+
+- Estructura modular:
+  * Agrupar por feature (ej: auth/, profile/) en proyectos grandes
+  * Componentes auto-contenidos con sus estilos y tests
+
+- Nomenclatura consistente:
+  * camelCase para archivos JS
+  * kebab-case para archivos HTML/CSS
+  * Prefixes para tipos: Button.component.js, auth.service.js
+
+- Gestión de dependencias:
+  * package.json bien organizado con scripts útiles
+  * Dependencias separadas entre dependencies y devDependencies
+
+ESPECÍFICAS PARA WEB:
+
+- Optimización de assets:
+  * Images en formato moderno (WebP)
+  * SVGs para íconos
+
+- Estructura de CSS:
+  * Metodologías como BEM o SMACSS
+
+- SEO:
+  * Estructura semántica HTML
+  * Meta tags en <head>
+
+ESPECÍFICAS PARA MÓVIL:
+
+- Optimización de recursos:
+  * Assets para múltiples densidades de pantalla
+
+- Separación de plataformas:
+  * Archivos .android.js y .ios.js cuando sea necesario
+
+- Offline-first:
+  * Estructura para manejar datos sin conexión
+
+HERRAMIENTAS QUE AYUDAN A MANTENER LA ESTRUCTURA:
+
+- Generadores de proyectos:
+  * Web: create-react-app, Vite, Next.js
+  * Móvil: react-native init, expo init
+
+- Linters y formateadores:
+  * ESLint + Prettier para consistencia de código
+  * Husky + lint-staged para pre-commit hooks
+
+- Monorepos (para proyectos complejos):
+  * Nx: https://nx.dev/
+  * Turborepo: https://turborepo.org/
+
+EVOLUCIÓN DE LA ESTRUCTURA:
+
+- A medida que el proyecto crece, considera:
+  * Monolítico → Micro-frontends (para web)
+  * Componentes compartidos entre web y móvil (con React Native Web)
+  * Patrones de diseño como Clean Architecture o Domain-Driven Design

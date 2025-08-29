@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Empleados</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>📝 Registro de Empleados (SQLite)</h1>
+        
+        <!-- Formulario de Registro -->
+        <div class="form-section">
+            <h2>➕ Nuevo Empleado</h2>
+            <form id="formEmpleado">
+                <input type="text" id="nombre" placeholder="Nombre" required>
+                <input type="text" id="cargo" placeholder="Cargo" required>
+                <input type="text" id="departamento" placeholder="Departamento">
+                <input type="number" id="sueldo" placeholder="Sueldo" step="0.01" required>
+                <input type="date" id="fecha" required>
+                <button type="submit">Guardar</button>
+            </form>
+        </div>
+
+        <!-- Búsqueda -->
+        <div class="search-section">
+            <h2>🔍 Buscar Empleados</h2>
+            <input type="text" id="busqueda" placeholder="ID, Nombre o Cargo">
+            <button onclick="buscarEmpleados()">Buscar</button>
+            <div id="resultados"></div>
+        </div>
+    </div>
+
+    <script>
+        // Guardar empleado
+        document.getElementById('formEmpleado').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const empleado = {
+                nombre: document.getElementById('nombre').value,
+                cargo: document.getElementById('cargo').value,
+                departamento: document.getElementById('departamento').value,
+                sueldo: parseFloat(document.getElementById('sueldo').value),
+                fecha: document.getElementById('fecha').value
+            };
+
+            fetch('/api/empleados', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(empleado)
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.mensaje);
+                document.getElementById('formEmpleado').reset();
+            });
+        });
+
+        // Buscar empleados
+        function buscarEmpleados() {
+            const query = document.getElementById('busqueda').value;
+            const resultados = document.getElementById('resultados');
+            resultados.innerHTML = '';
+
+            fetch(`/api/empleados?query=${query}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.length === 0) {
+                        resultados.innerHTML = '<p>No se encontraron empleados</p>';
+                        return;
+                    }
+
+                    data.forEach(emp => {
+                        resultados.innerHTML += `
+                            <div class="empleado">
+                                <p><strong>ID:</strong> ${emp.id}</p>
+                                <p><strong>Nombre:</strong> ${emp.nombre}</p>
+                                <p><strong>Cargo:</strong> ${emp.cargo}</p>
+                                <p><strong>Sueldo:</strong> $${emp.sueldo.toFixed(2)}</p>
+                                <p><strong>Fecha:</strong> ${emp.fecha}</p>
+                            </div>
+                        `;
+                    });
+                });
+        }
+    </script>
+</body>
+</html>

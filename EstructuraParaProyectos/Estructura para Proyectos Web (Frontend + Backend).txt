@@ -1,0 +1,38 @@
+my-web-project/
+├── client/                  # Frontend
+│   ├── public/              # Assets estáticos
+│   │   ├── index.html
+│   │   ├── favicon.ico
+│   │   ├── images/
+│   │   └── robots.txt
+│   ├── src/
+│   │   ├── assets/          # Recursos estáticos
+│   │   ├── components/      # Componentes reutilizables
+│   │   ├── pages/           # Páginas/Vistas
+│   │   ├── styles/          # Estilos globales
+│   │   ├── utils/           # Funciones utilitarias
+│   │   ├── services/        # Lógica de API/services
+│   │   ├── store/           # Estado global (Redux, Context)
+│   │   ├── hooks/           # Custom hooks
+│   │   ├── App.jsx          # Componente raíz
+│   │   └── index.js         # Punto de entrada
+│   ├── package.json
+│   └── README.md
+│
+├── server/                  # Backend
+│   ├── config/              # Configuraciones
+│   ├── controllers/         # Lógica de rutas
+│   ├── models/              # Modelos de datos
+│   ├── routes/              # Definición de rutas
+│   ├── middleware/          # Middlewares
+│   ├── services/            # Lógica de negocio
+│   ├── utils/               # Utilidades
+│   ├── public/              # Archivos estáticos del backend
+│   ├── tests/               # Pruebas
+│   ├── app.js               # Aplicación principal
+│   ├── server.js            # Punto de entrada
+│   └── package.json
+│
+├── .gitignore
+├── package.json             # Para scripts globales (opcional)
+└── README.md

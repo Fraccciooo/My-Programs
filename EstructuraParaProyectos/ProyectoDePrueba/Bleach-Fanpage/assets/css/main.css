@@ -1,0 +1,20 @@
+/* Importaciones */
+@import './base/reset.css';
+@import './base/variables.css';
+@import './layouts/grid.css';
+@import './layouts/footer.css';
+@import './components/header.css';
+@import './components/card.css';
+@import './pages/home.css';
+
+/* Estilos globales */
+body {
+    background-color: var(--primary);
+    color: var(--text-light);
+}
+
+.container {
+    width: 90%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+}

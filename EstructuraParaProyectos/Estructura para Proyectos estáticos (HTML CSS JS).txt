@@ -1,0 +1,20 @@
+static-project/
+├── assets/
+│   ├── css/
+│   │   ├── base/            # Reset, variables, mixins
+│   │   ├── components/      # Estilos por componente
+│   │   ├── layouts/         # Estructuras globales
+│   │   ├── pages/           # Estilos específicos de páginas
+│   │   └── main.css         # Estilo principal
+│   ├── js/
+│   │   ├── components/      # Componentes JS
+│   │   ├── lib/             # Librerías externas
+│   │   ├── services/        # Lógica de API
+│   │   ├── utils/           # Funciones helper
+│   │   └── main.js          # Punto de entrada
+│   ├── images/
+│   └── fonts/
+├── partials/                # Fragmentos HTML reutilizables
+├── pages/                   # Páginas HTML
+├── index.html               # Página principal
+└── README.md

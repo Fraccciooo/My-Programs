@@ -1,0 +1,35 @@
+.arc-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+.arc-card {
+    background: rgba(30, 30, 60, 0.8);
+    border-left: 4px solid var(--accent);
+    padding: 1.5rem;
+    position: relative;
+}
+
+.arc-card::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -10px;
+    width: 20px;
+    height: 20px;
+    background: var(--secondary);
+    border-radius: 50%;
+    transform: translateY(-50%);
+}
+
+.arc-card h2 {
+    color: var(--accent);
+    margin-bottom: 1rem;
+}
+
+.arc-info p {
+    margin-bottom: 0.5rem;
+    color: var(--text-light);
+}

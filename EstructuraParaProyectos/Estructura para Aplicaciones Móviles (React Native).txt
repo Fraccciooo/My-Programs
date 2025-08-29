@@ -1,0 +1,26 @@
+mobile-app/
+├── android/                 # Código nativo Android
+├── ios/                     # Código nativo iOS
+├── src/
+│   ├── assets/              # Recursos estáticos
+│   │   ├── fonts/
+│   │   ├── images/
+│   │   └── icons/
+│   ├── components/          # Componentes reutilizables
+│   │   ├── common/          # Componentes genéricos
+│   │   ├── ui/              # Componentes de UI
+│   │   └── index.js         # Exportación centralizada
+│   ├── constants/           # Constantes globales
+│   ├── navigation/          # Configuración de navegación
+│   ├── screens/             # Pantallas/Views
+│   ├── services/            # Lógica de API
+│   ├── store/               # Estado global (Redux/MobX)
+│   ├── theme/               # Estilos globales/theming
+│   ├── utils/               # Funciones helper
+│   ├── App.js               # Componente raíz
+│   └── index.js             # Punto de entrada
+├── .env                     # Variables de entorno
+├── app.json                 # Configuración de la app
+├── babel.config.js
+├── package.json
+└── README.md
